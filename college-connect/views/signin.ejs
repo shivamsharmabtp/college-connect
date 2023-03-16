@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Sign in - CollegeConnect</title>
+        <% include ./partials/head %>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        </head>
+    <body>
+            <div class="maincontainer">
+            
+            <div class="bodyContainer">
+                <div class="body-main-container">
+                    
+                    <script src="/js/signin.js"></script>
+                    <link rel="stylesheet" href="/css/signin.css">
+                    <div class="signin-cnt">
+                        <div class="ml-intro">
+                            <div class="ml-logo"></div>
+                            <div class="ml-tagline">CollegeConnect - Community of learners ;)</div>
+                        </div>
+                        <div class="signin-panel">
+                            <div class="connect-signin">
+                                <script src="https://apis.google.com/js/platform.js" async defer></script>
+                                <meta name="google-signin-client_id" content="<%= g_token %>">
+                                <div class="g-signin2" data-onsuccess="onSignIn"></div> 
+                                <div class="error" style="display: none;">Error signin!</div>
+                                <div class="explain">
+                                    By signing up you indicate that you have read and agree to Collegeconnect's <a href="/terms">Terms of Service</a>
+                                    and <a href="/privacy">Privacy Policy</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="quicklinks">
+                            <div class="link about">
+                                <a href="/about">About</a>
+                            </div>
+                            <div class="link privacy">
+                                <a href="/privacy">Privacy</a>
+                            </div>
+                            <div class="link terms">
+                                <a href="/terms">Terms</a>
+                            </div>
+                            
+                            <div class="link">© CollegeConnect 2023</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script> // basic common script
+            token = localStorage.getItem('x-auth');
+            $.ajaxSetup({
+                headers: { 'x-auth': token }
+            });
+        </script>
+    </body>
+</html>
