@@ -11,5 +11,23 @@
     "start": "node server.js"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "morgan": "^1.10.0",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "lodash": "^4.17.11",
+    "md5": "^2.2.1",
+    "mongoose": "^5.4.1",
+    "node-cmd": "^3.0.0",
+    "nodemailer": "^5.1.1",
+    "password-generator": "^2.2.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "sendmail": "^1.4.1",
+    "string-score": "^1.0.1",
+    "uniqid": "^5.0.3"
+  }
 }
