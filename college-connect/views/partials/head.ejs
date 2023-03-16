@@ -1,0 +1,31 @@
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+/>
+<meta name="theme-color" content="#A33A47" />
+<meta name="robots" content="index, follow" />
+<meta property="og:content" content="wesite" />
+<meta property="og:site_name" content="CollegeConnect" />
+<meta
+  property="og:title"
+  content="<%if(locals.title) { %><%= title%><% } else { %>CollegeConnect - Community of learners!<%}%>"
+/>
+
+<link rel="shortcut icon" type="image/png" href="/images/logo.png" />
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  function loaded() {
+    $(".loader").fadeOut(200, function () {
+      $(".loading").fadeOut(400);
+    });
+
+    $.ajaxSetup({
+      headers: { "x-auth": token },
+    });
+  }
+  // TODO : Implement header icon logic here (like Menu)
+  token = localStorage.getItem("x-auth");
+</script>
+
+<!-- TODO : Link tag for common css to be included in the future -->
