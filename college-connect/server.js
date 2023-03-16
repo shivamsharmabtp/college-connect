@@ -7,7 +7,6 @@ const cookieParser = require("cookie-parser");
 const fs = require("fs");
 
 var app = express();
-
 var port = 80;
 
 app.set("view engine", "ejs");
@@ -16,7 +15,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
 
-const config = {env:"local"}
+const config = { env: "local" };
 
 if (config.env == "local") {
   app.use((req, res, next) => {
