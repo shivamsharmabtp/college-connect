@@ -1,1 +1,46 @@
-Homepage
+<html>
+  <head>
+    <title>CollegeConnect - Community of learners!</title>
+    <% include ./partials/head %>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (min-width: 320px) and (max-width: 900px)"
+      href="/css/phone/main.css"
+    />
+    <style>
+      .hny-c {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+      }
+    </style>
+    <script>
+      $("document").ready(function () {
+        loaded();
+      });
+    </script>
+  </head>
+  <body onload="loaded()">
+    <div class="loading">
+      <div class="loading-header"></div>
+      <div class="loading-cnt"><% include ./partials/loading %></div>
+    </div>
+    <div class="header"><% include ./partials/header-li %></div>
+    <div class="main-container">
+      <div class="center" style="background: rgba(0, 0, 0, 0)">
+        <div class="introbox noselect">
+          <div class="ml">College<span> Connect</span></div>
+          <div class="tagline">Community of learners &#128521;</div>
+          <div class="desc">
+            Online portal for college students to study, share and discuss class
+            notes
+          </div>
+          <a href="/universities" class="action">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
