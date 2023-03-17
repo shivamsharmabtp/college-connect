@@ -1,0 +1,321 @@
+<div class="loader">
+  <style>
+    .loader {
+      font-family: sans-serif;
+      position: fixed;
+      z-index: 999;
+      height: 7em;
+      width: 7em;
+      overflow: show;
+      margin: auto;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      text-align: center;
+
+      animation-name: bounceIn;
+      animation-duration: 1000ms;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    }
+    .load-text {
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #000;
+    }
+
+    #liquid {
+      transform: translateX(100%);
+      transform: translateY(100%);
+      animation: fill 6.5s;
+      animation-fill-mode: forwards;
+      bottom: 10px;
+    }
+
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.3) translate3d(0, 0, 0);
+      }
+      50% {
+        opacity: 0.9;
+        transform: scale(1.1);
+      }
+      80% {
+        opacity: 1;
+        transform: scale(0.89);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translate3d(0, 0, 0);
+      }
+    }
+
+    @keyframes fill {
+      0% {
+        transform: translateY(100%);
+      }
+
+      10% {
+        transform: translateY(60%);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+  </style>
+  <div class="load-text">Loading...</div>
+
+  <svg
+    version="1.1"
+    id="Layer_1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    x="0px"
+    y="0px"
+    viewBox="0 0 98 100"
+    style="enable-background: new 0 0 98 100"
+    xml:space="preserve"
+  >
+    <g>
+      <path
+        style="fill: #bc5365"
+        d="M51.597,29.078L45.79,5.839c-0.139-0.555-0.536-1.01-1.067-1.222L35.86,1.071
+              c-0.353-0.141-0.753,0.031-0.895,0.383l-0.812,2.031c-0.141,0.353,0.031,0.754,0.383,0.895l7.691,3.076
+              c0.205,0.082,0.358,0.258,0.412,0.472l5.287,21.15H51.597z"
+      />
+    </g>
+    <path
+      style="fill: #9e3e52"
+      d="M44.724,4.617l-0.297-0.119L41.685,7.24l0.542,0.217c0.205,0.082,0.358,0.258,0.412,0.472
+          l0.158,0.632l2.928-2.928C45.549,5.173,45.187,4.803,44.724,4.617z"
+    />
+    <g>
+      <path
+        style="fill: #ffd96f"
+        d="M74.923,25.977c6.891,0,12.477-5.586,12.477-12.477S81.814,1.022,74.923,1.022
+              c-6.891,0-12.477,5.586-12.477,12.477c0,1.458,0.25,2.858,0.71,4.159L74.923,25.977z"
+      />
+      <path
+        style="fill: #ffc065"
+        d="M74.923,1.022c-0.488,0-0.97,0.029-1.444,0.084c6.211,0.716,11.034,5.991,11.034,12.394
+              c0,6.026-4.272,11.054-9.952,12.222l0.362,0.256c6.891,0,12.477-5.586,12.477-12.477S81.814,1.022,74.923,1.022z"
+      />
+      <path
+        style="fill: #ff8a4c"
+        d="M74.923,21.818c4.594,0,8.318-3.724,8.318-8.318s-3.724-8.318-8.318-8.318s-8.318,3.724-8.318,8.318
+              c0,1.515,0.405,2.935,1.113,4.159L74.923,21.818z"
+      />
+      <path
+        style="fill: #ffc065"
+        d="M81.432,18.677l-5.177-5.177l5.177-5.177C81.04,7.83,80.593,7.383,80.1,6.991l-5.177,5.177
+              l-5.177-5.177c-0.492,0.392-0.939,0.839-1.331,1.331l5.177,5.177l-3.493,3.493c-0.368,0.368-0.368,0.964,0,1.331
+              c0.184,0.184,0.425,0.276,0.666,0.276c0.241,0,0.482-0.092,0.666-0.276l3.493-3.493l5.177,5.177
+              C80.593,19.616,81.04,19.169,81.432,18.677z"
+      />
+    </g>
+    <rect
+      id="glass"
+      x="40.041"
+      y="18.054"
+      style="opacity: 0.8; fill: #ffffff"
+      width="32.156"
+      height="79.095"
+    />
+    <path
+      id="liquid"
+      style="fill: #35b1c2"
+      d="M64.223,86.338H48.101c-4.469,0-8.06-3.592-8.06-8.06V22.026h32.156v56.252
+          C72.197,82.746,68.604,86.338,64.223,86.338z"
+    />
+    <path
+      style="fill: #eaf3fb"
+      d="M72.197,75.442v21.793H40.041V75.442h0.143c0.671,3.762,3.949,6.59,7.921,6.59h16.117
+          c3.883,0,7.162-2.827,7.833-6.59H72.197z"
+    />
+    <g style="opacity: 0.06">
+      <g>
+        <rect
+          x="63.347"
+          y="17.901"
+          style="fill: #62345b"
+          width="8.849"
+          height="80.347"
+        />
+      </g>
+    </g>
+    <g style="opacity: 0.7">
+      <path
+        style="fill: #ffffff"
+        d="M45.649,64.427c-0.964,0-1.752-0.789-1.752-1.752V17.726c0-0.964,0.789-1.752,1.752-1.752
+              s1.752,0.789,1.752,1.752v44.948C47.401,63.638,46.613,64.427,45.649,64.427z"
+      />
+    </g>
+    <g>
+      <path
+        style="fill: #61747f"
+        d="M72.11,100H40.041c-0.964,0-1.752-0.789-1.752-1.752V17.901c0-0.964,0.789-1.752,1.752-1.752h32.156
+              c0.964,0,1.752,0.789,1.752,1.752v80.347C73.862,99.212,73.073,100,72.11,100z M41.793,96.496h28.651V19.654H41.793V96.496z"
+      />
+    </g>
+    <path
+      style="opacity: 0.3; fill: #ffffff; enable-background: new"
+      d="M63.58,73.652c0,0.63-0.504,1.134-1.134,1.134l0,0
+          c-0.63,0-1.134-0.504-1.134-1.134l0,0c0-0.63,0.504-1.134,1.134-1.134l0,0C63.076,72.518,63.58,73.022,63.58,73.652L63.58,73.652z"
+    >
+      <animateTransform
+        accumulate="none"
+        additive="replace"
+        attributeName="transform"
+        attributeType="XML"
+        calcMode="linear"
+        dur="2s"
+        fill="remove"
+        repeatCount="indefinite"
+        restart="always"
+        type="translate"
+        values="2 10;2 -30;"
+      ></animateTransform>
+    </path>
+    <path
+      style="opacity: 0.3; fill: #ffffff; enable-background: new"
+      d="M56.032,59.785c0,1.154-0.923,2.077-2.077,2.077l0,0
+          c-1.154,0-2.077-0.923-2.077-2.077l0,0c0-1.154,0.923-2.077,2.077-2.077l0,0C55.109,57.708,56.032,58.631,56.032,59.785
+          L56.032,59.785z"
+    >
+      <animateTransform
+        accumulate="none"
+        additive="replace"
+        attributeName="transform"
+        attributeType="XML"
+        calcMode="linear"
+        dur="2.3s"
+        fill="remove"
+        repeatCount="indefinite"
+        restart="always"
+        type="translate"
+        values="0 10;0 -30;"
+      ></animateTransform>
+    </path>
+    <path
+      style="opacity: 0.3; fill: #ffffff; enable-background: new"
+      d="M46.921,70.964c0,1.155-0.935,2.035-2.035,2.035l0,0
+          c-1.155,0-2.035-0.935-2.035-2.035l0,0c0-1.155,0.935-2.035,2.035-2.035l0,0C45.986,68.929,46.921,69.864,46.921,70.964
+          L46.921,70.964z"
+    >
+      <animateTransform
+        accumulate="none"
+        additive="replace"
+        attributeName="transform"
+        attributeType="XML"
+        calcMode="linear"
+        dur="3s"
+        fill="remove"
+        repeatCount="indefinite"
+        restart="always"
+        type="translate"
+        values="0 10;0 -30;"
+      ></animateTransform>
+    </path>
+    <path
+      style="opacity: 0.3; fill: #ffffff; enable-background: new"
+      d="M51.817,75.442c0,0.548-0.464,1.012-1.012,1.012l0,0
+          c-0.548,0-1.012-0.464-1.012-1.012l0,0c0-0.548,0.464-1.012,1.012-1.012l0,0C51.353,74.429,51.817,74.893,51.817,75.442
+          L51.817,75.442z"
+    >
+      <animateTransform
+        accumulate="none"
+        additive="replace"
+        attributeName="transform"
+        attributeType="XML"
+        calcMode="linear"
+        dur="3s"
+        fill="remove"
+        repeatCount="indefinite"
+        restart="always"
+        type="translate"
+        values="0 10;0 -30;"
+      ></animateTransform>
+    </path>
+    <path
+      style="opacity: 0.3; fill: #ffffff; enable-background: new"
+      d="M66.399,41.061c0,0.514-0.404,0.955-0.955,0.955l0,0
+          c-0.514,0-0.955-0.404-0.955-0.955l0,0c0-0.514,0.404-0.955,0.955-0.955l0,0C65.995,40.143,66.399,40.547,66.399,41.061
+          L66.399,41.061z"
+    >
+      <animateTransform
+        accumulate="none"
+        additive="replace"
+        attributeName="transform"
+        attributeType="XML"
+        calcMode="linear"
+        dur="3s"
+        fill="remove"
+        repeatCount="indefinite"
+        restart="always"
+        type="translate"
+        values="0 10;0 -10;"
+      ></animateTransform>
+    </path>
+    <path
+      style="opacity: 0.3; fill: #ffffff; enable-background: new"
+      d="M54.408,50.887c0,0.77-0.66,1.43-1.43,1.43l0,0
+          c-0.77,0-1.43-0.66-1.43-1.43l0,0c0-0.77,0.66-1.43,1.43-1.43l0,0C53.748,49.567,54.408,50.117,54.408,50.887L54.408,50.887z"
+    >
+      <animateTransform
+        accumulate="none"
+        additive="replace"
+        attributeName="transform"
+        attributeType="XML"
+        calcMode="linear"
+        dur="2.1s"
+        fill="remove"
+        repeatCount="indefinite"
+        restart="always"
+        type="translate"
+        values="0 10;2 -20;"
+      ></animateTransform>
+    </path>
+    <path
+      style="opacity: 0.3; fill: #ffffff; enable-background: new"
+      d="M56.302,77.289c0,0.77-0.66,1.43-1.43,1.43l0,0
+          c-0.77,0-1.43-0.66-1.43-1.43l0,0c0-0.77,0.66-1.43,1.43-1.43l0,0C55.642,75.859,56.302,76.519,56.302,77.289L56.302,77.289z"
+    >
+      <animateTransform
+        accumulate="none"
+        additive="replace"
+        attributeName="transform"
+        attributeType="XML"
+        calcMode="linear"
+        dur="2.2s"
+        fill="remove"
+        repeatCount="indefinite"
+        restart="always"
+        type="translate"
+        values="0 10;0 -20;"
+      ></animateTransform>
+    </path>
+    <path
+      style="opacity: 0.3; fill: #ffffff; enable-background: new"
+      d="M65.244,69.946c0,0.551-0.466,1.018-1.018,1.018l0,0
+          c-0.551,0-1.018-0.466-1.018-1.018l0,0c0-0.551,0.466-1.018,1.018-1.018l0,0C64.778,68.929,65.244,69.395,65.244,69.946
+          L65.244,69.946z"
+    >
+      <animateTransform
+        accumulate="none"
+        additive="replace"
+        attributeName="transform"
+        attributeType="XML"
+        calcMode="linear"
+        dur="5s"
+        fill="remove"
+        repeatCount="indefinite"
+        restart="always"
+        type="translate"
+        values="-10 10;-10 -20;"
+      ></animateTransform>
+    </path>
+  </svg>
+</div>
