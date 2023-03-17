@@ -28,6 +28,9 @@
     "request-promise": "^4.2.4",
     "sendmail": "^1.4.1",
     "string-score": "^1.0.1",
-    "uniqid": "^5.0.3"
+    "uniqid": "^5.0.3",
+    "google-auth-library": "^2.0.2",
+    "validator": "^10.10.0",
+    "bcryptjs": "^2.4.3"
   }
 }

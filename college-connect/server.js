@@ -6,6 +6,11 @@ const logger = require("morgan");
 const cookieParser = require("cookie-parser");
 const fs = require("fs");
 
+var mainRoutes = require("./routes/mainApi");
+var userRoutes = require("./routes/userApi");
+
+var { mongoose } = require("./db/mongoose");
+
 var app = express();
 var port = 80;
 
@@ -26,6 +31,11 @@ if (config.env == "local") {
   app.use(logger("dev"));
 }
 
+// All api calls will be handled here
+app.use("/user", userRoutes);
+app.use("/", mainRoutes);
+
+// All api calls which could not be matched go here
 app.use(function (req, res, next) {
   next(createError(404));
 });

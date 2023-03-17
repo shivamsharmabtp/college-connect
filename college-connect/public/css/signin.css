@@ -1,0 +1,257 @@
+.signin-cnt {
+  width: 644px;
+  height: 460px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px #888;
+  background: #fff;
+  box-shadow: 0px 0px 40px 10px #333;
+  border: 5px ridge;
+}
+
+.ml-intro {
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  top: 40px;
+}
+
+.signin-panel {
+  height: 240px;
+  position: relative;
+  padding-top: 50px;
+  display: flex;
+}
+
+.connect-signin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.email-signin {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  border-left: 1px solid #ddd;
+  height: 90%;
+}
+
+.quicklinks {
+  height: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #f3f3f3;
+  font-size: 12px;
+}
+
+.ml-logo {
+  height: 100px;
+  width: 100px;
+  background: url("/images/logo-192.png");
+  background-size: 100px 100px;
+}
+
+.ml-tagline {
+  color: #999;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.register.connect {
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+
+.explain {
+  height: 40px;
+  width: 70%;
+  font-size: 13px;
+  color: #888;
+  text-align: justify;
+  margin-top: 25px;
+}
+
+.link {
+  color: #888;
+}
+
+a {
+  text-decoration: none;
+  color: #507cc0;
+  transition: 0.6s text-decoration;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.link > a {
+  color: #888;
+}
+
+.tabs {
+  display: flex;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.email-signin-panel {
+  width: 85%;
+}
+
+.tab {
+  padding: 6px;
+  cursor: pointer;
+  background: #fff;
+  box-shadow: none;
+  color: #777;
+  text-shadow: none;
+  border-radius: 3px;
+}
+
+.tab.active {
+  box-shadow: 1px 1px 6px #555 inset;
+  background: #ccc;
+  cursor: default;
+  color: #fff;
+  text-shadow: 1px 1px 2px #000;
+}
+
+input.si.name {
+  width: 224px;
+}
+
+input.si {
+  margin-top: 10px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input.si.email {
+  width: 224px;
+}
+
+input.si.pass {
+  width: 224px;
+}
+
+input.si.submit {
+  cursor: pointer;
+  border: 0;
+  padding: 7px;
+  background: #507cc0;
+  background: #57ada2;
+  color: #fff;
+}
+
+.tag {
+  display: none;
+}
+
+a.link.forgot {
+  font-size: 12px;
+  margin-left: 12px;
+  font-weight: inherit;
+}
+
+.cancel {
+  font-size: 12px;
+  margin-left: 12px;
+  font-weight: inherit;
+}
+
+.pass {
+  font-size: 12px;
+}
+
+.error {
+  color: #a00;
+}
+
+.email-taken {
+  font-size: 12px;
+  color: #a00;
+}
+
+.spinner {
+  position: relative;
+  bottom: 24px;
+  left: 65px;
+}
+.body-main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: #f2e3ba;
+  background-image: url("/images/bg.jpg");
+  background-size: 100% 100%;
+  box-shadow: 0px 0px 40px 10px #333 inset;
+}
+
+@media (min-width: 320px) and (max-width: 900px) {
+  .explain {
+    width: 100%;
+  }
+
+  .signin-cnt {
+    width: 100%;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: none;
+    top: 0;
+  }
+
+  .signin-panel {
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .connect-signin {
+    width: 80%;
+  }
+
+  .email-signin {
+    width: 80%;
+    border: 0;
+  }
+
+  .quicklinks {
+  }
+
+  .ml-tagline {
+    /* color: #fff; */
+    font-size: 12px;
+  }
+
+  .explain {
+    /* color: #fff; */
+  }
+
+  a {
+    color: #507cc0;
+  }
+
+  .link > a {
+  }
+
+  .link {
+    /* color: #fff; */
+  }
+  .body-main-container {
+    background-size: 170% 105%;
+    background-position-x: -28px;
+  }
+}
