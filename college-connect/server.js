@@ -11,6 +11,7 @@ var userRoutes = require("./routes/userApi");
 var universitiesRoutes = require("./routes/universitiesApi");
 var universityRoutes = require("./routes/universityApi");
 var uploadRoutes = require("./routes/upload");
+var adminRoutes = require("./routes/adminApi");
 
 var { mongoose } = require("./db/mongoose");
 
@@ -40,6 +41,7 @@ app.use("/universities", universitiesRoutes);
 app.use("/university", universityRoutes)
 app.use("/upload", uploadRoutes);
 app.use("/upload", uploadRoutes);
+app.use("/admin", adminRoutes);
 app.use("/", mainRoutes);
 
 

@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title><%= title%> - UniversityConnect</title>
+    <% include ./partials/head %>
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.js"
+      datatables=""
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"
+    />
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"
+    ></script>
+    <script src="/js/deps.js"></script>
+    <script src="/js/admin.js"></script>
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body onload="loaded()">
+    <div class="loading">
+      <div class="loading-header"></div>
+      <div class="loading-cnt"><% include ./partials/loading %></div>
+    </div>
+    <div class="header"><% include ./partials/header-li %></div>
+    <div class="main-container">
+      <div class="admin-container">
+        <div class="controls">
+          <button class="btnCol" collection="User">Users</button>
+          <button class="btnCol" collection="University">Universities</button>
+        </div>
+        <div class="display">
+          <div class="info">
+            <span class="total-records"></span>
+          </div>
+          <div class="data-container">
+            <table
+              id="example"
+              class="dataTable table table-striped"
+              width="100%"
+              role="grid"
+              aria-describedby="example_info"
+            ></table>
+          </div>
+        </div>
+      </div>
+      <% include ./partials/toast %>
+      <div class="editorWrapper hidden">
+        <div class="editor">
+          <div class="editorTitle">
+            <span class="closeBtn" title="Close">X</span>
+          </div>
+          <div class="editorContent">
+            <pre class="data-content"></pre>
+          </div>
+          <div class="editorAction">
+            <button class="actionBtn"></button>
+            <button class="cancelBtn">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
