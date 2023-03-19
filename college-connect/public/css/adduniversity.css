@@ -1,0 +1,55 @@
+h3.heading {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.add-university-main-container {
+  padding: 17px;
+}
+
+.details {
+  margin-bottom: 20px;
+}
+
+.ac-label {
+  margin-bottom: 10px;
+}
+
+.addbtn.done {
+  background: #4f4b3a;
+  padding: 11px;
+  border-radius: 4px;
+  margin-top: 12px;
+  width: fit-content;
+  cursor: pointer;
+  color: #fff;
+}
+
+input.c {
+  padding: 9px;
+  outline: none;
+  border: 0;
+  border-bottom: 3px solid #aaa;
+  font-size: 15px;
+  margin-bottom: 20px;
+  margin-right: 43px;
+}
+span.choose-pic-label {
+  display: block;
+}
+.select2-container {
+  display: block;
+  margin-bottom: 20px;
+  width: 200px;
+}
+
+.select2-selection {
+  width: 274px;
+  border: 0 !important;
+  border-bottom: 3px solid #aaa !important;
+  border-radius: 0px !important;
+}
+textarea.depsNotInList {
+  margin-bottom: 20px;
+  padding: 9px;
+}

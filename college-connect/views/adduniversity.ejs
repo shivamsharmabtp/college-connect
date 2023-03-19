@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>Add New University - Universityconnect</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <% include ./partials/head %>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
+    <link rel="stylesheet" href="/css/adduniversity.css" />
+    <!--link rel="stylesheet" media='screen and (min-width: 320px) and (max-width: 900px)' href="/css/phone/adduniversity.css"/-->
+    <script src="/js/deps.js"></script>
+    <script src="/js/adduniversity.js"></script>
+  </head>
+  <body onload="loaded()">
+    <div class="loading">
+      <div class="loading-header"></div>
+      <div class="loading-cnt"><% include ./partials/loading %></div>
+    </div>
+    <div class="header"><% include ./partials/header-li %></div>
+    <div class="main-container">
+      <div class="add-university-main-container">
+        <h3 class="heading">Add your University</h3>
+        <div class="details">
+          Add your university to join fastest growing university students
+          community.
+        </div>
+
+        <div class="add-university-container">
+          <div class="c-fields">
+            <div class="ac-label">Your university details:</div>
+            <div class="c-exist" style="display: none">
+              Error: A university with same name or short name already exists!
+            </div>
+            <input type="text" class="c name" placeholder="University Name" />
+            <input type="text" class="c address" placeholder="Address" />
+            <input
+              type="text"
+              class="c description"
+              placeholder="Short Description"
+            />
+            <select
+              class="js-example-basic-multiple"
+              name="states[]"
+              multiple="multiple"
+            ></select>
+            <textarea
+              class="depsNotInList"
+              placeholder="Mention departments not available in list..."
+              cols="30"
+              rows="10"
+            ></textarea>
+            <span class="choose-pic-label"
+              >University Image/Logo (Square dimension) :</span
+            >
+            <input type="file" class="c picture" accept="image/*" />
+            <span class="progress-bar" style="display: none"></span>
+            <div class="addbtn done">
+              Apply<span class="spinner" style="display: none"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% include ./partials/toast %>
+  </body>
+</html>

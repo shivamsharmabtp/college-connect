@@ -31,6 +31,10 @@
     "uniqid": "^5.0.3",
     "google-auth-library": "^2.0.2",
     "validator": "^10.10.0",
-    "bcryptjs": "^2.4.3"
+    "bcryptjs": "^2.4.3",
+    "formidable": "^1.2.1",
+    "read-chunk": "^3.1.0",
+    "file-type": "^10.9.0",
+    "office-to-pdf": "^4.0.0"
   }
 }

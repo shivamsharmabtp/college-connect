@@ -9,6 +9,9 @@ const fs = require("fs");
 var mainRoutes = require("./routes/mainApi");
 var userRoutes = require("./routes/userApi");
 var universitiesRoutes = require("./routes/universitiesApi");
+var universityRoutes = require("./routes/universityApi");
+var uploadRoutes = require("./routes/upload");
+
 var { mongoose } = require("./db/mongoose");
 
 var app = express();
@@ -34,6 +37,9 @@ if (config.env == "local") {
 // All api calls will be handled here
 app.use("/user", userRoutes);
 app.use("/universities", universitiesRoutes);
+app.use("/university", universityRoutes)
+app.use("/upload", uploadRoutes);
+app.use("/upload", uploadRoutes);
 app.use("/", mainRoutes);
 
 
