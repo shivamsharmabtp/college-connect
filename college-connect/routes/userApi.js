@@ -4,6 +4,7 @@ const { OAuth2Client } = require("google-auth-library");
 var router = express.Router();
 module.exports = router;
 
+var { authenticate } = require("./../middleware/authenticate");
 var { User } = require("./../models/userModel");
 
 const fileName = __filename;
@@ -108,5 +109,26 @@ router.post("/google/signin", (req, res) => {
       }
       console.log(errMsg);
     }
+  }
+});
+
+
+router.post("/userinfo", authenticate, (req, res) => {
+  try {
+    if (req.user == null) res.status("401").send("unauthorized");
+    else {
+      User.findOne(
+        { _id: req.user.id },
+        { email: 1, name: 1, profilePicture: 1 },
+        { lean: true },
+        (err, doc) => {
+          if (err || doc == null) res.status(400).send(err);
+          else res.json(doc);
+        }
+      );
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error proccesing request.");
   }
 });
