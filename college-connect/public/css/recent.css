@@ -1,0 +1,46 @@
+.recents {
+    background: rgba(255,255,255);
+    height: fit-content;
+    width: 300px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+a.fileLinkR {
+    font-size: 12px;
+}
+
+.norecent{
+    font-size: 12px;
+    color: #777;
+    margin: 10px;
+}
+
+.titleR {
+    /* background: #A33A47; */
+    color: #000;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.fileR {
+    margin-left: 10px;
+    margin-top: 15px;
+}
+.site {
+    margin-top: 20px;
+    padding: 10px;
+    color: rgba(0,0,0,.5);
+    font-size: 13px;
+    background: rgba(0,0,0,.05);
+}
+
+a.siteLink {
+    color: rgba(0,0,0,.5);
+    margin-right: 7px;
+}
+
+span.copyright {
+    display: block;
+    margin-top: 15px;
+}

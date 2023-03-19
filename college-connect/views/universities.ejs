@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>University - Universityconnect</title>
+    <% include ./partials/head %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/universities.js"></script>
+    <link rel="stylesheet" href="/css/universities.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (min-width: 320px) and (max-width: 900px)"
+      href="/css/phone/universities.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+      // (adsbygoogle = window.adsbygoogle || []).push({
+      //     google_ad_client: "ca-pub-7529702716232866",
+      //     enable_page_level_ads: true
+      // });
+    </script>
+  </head>
+  <body onload="loaded()">
+    <div class="loading">
+      <div class="loading-header"></div>
+      <div class="loading-cnt"><% include ./partials/loading %></div>
+    </div>
+    <div class="header"><% include ./partials/header-li %></div>
+    <div class="main-container">
+      <div class="left"><% include ./partials/left %></div>
+      <div class="center">
+        <div class="university-cnt">
+          <div class="unv-head">
+            <div class="unv-title">
+              <div class="unv-name">Universities</div>
+            </div>
+            <a href="/university/adduniversity"
+              ><div class="unv-addbtn">Add University</div></a
+            >
+          </div>
+          <div class="unv-body"></div>
+        </div>
+      </div>
+      <div class="right"><% include ./partials/right %></div>
+      <% include ./partials/toast %>
+    </div>
+    <script>
+      $(".search-icon").click(function () {
+        $(".search-icon").fadeOut(300);
+        $(".page-title").fadeOut(300, function () {
+          $(".searchArea").css("display", "flex").hide().fadeIn(300);
+        });
+      });
+    </script>
+    <div class="backendLinks hidden">
+      <% universityData.forEach(function(university){ %>
+      <a href="/university/<%= university.shortName %>" class="clinks"
+        ><%= university.name %></a
+      >
+      <% }) %>
+    </div>
+  </body>
+</html>

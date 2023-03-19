@@ -1,0 +1,50 @@
+<style>
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 20;
+  left: 50%;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: example 4s ;
+  animation: example 4s;
+}
+
+@-webkit-keyframes example {
+  0%   {top: 30px; opacity: 0;}
+  10%  {top: 60px; opacity: 1;}
+  90%  {top: 60px; opacity: 1;}
+  100% {top: 30px; opacity: 0;}
+}
+
+@keyframes example {
+  0%   {top: 30px; opacity: 0;}
+  10%  {top: 60px; opacity: 1;}
+  90%  {top: 60px; opacity: 1;}
+  100% {top: 30px; opacity: 0;}
+}
+
+</style>
+
+<div id="snackbar"></div>
+
+<script>
+function toast(color, message) {
+  var x = document.getElementById("snackbar");
+  x.className.replace("show", "");
+  x.style.background = color;
+  x.innerText = message;
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 4000);
+}
+</script>

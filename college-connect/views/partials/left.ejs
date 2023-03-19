@@ -1,0 +1,31 @@
+<script>
+    $('document').ready(() => {
+        if(localStorage.getItem('reads')){
+            $('.norecent').hide();
+            reads = JSON.parse(localStorage.getItem('reads'))
+            populateRecent(reads);
+        }
+
+        function populateRecent(data){
+            for(i=data.length-1; i>=0 ; i--){
+                shortName = data[i].name.split(' ').join('-').toLowerCase();
+                a = '<a href="/read?doc=' + shortName + '&v=' + data[i].v + '&source=recent-reads" class="fileLinkR"><div class="fileR"><div class="top">'
+                b = data[i].name + '</div></div></a>'
+                $('.recents').append(a+b);
+            }
+        }
+    })
+</script>
+
+<link rel="stylesheet" href="/css/recent.css">
+<link rel="stylesheet" media='screen and (min-width: 320px) and (max-width: 900px)' href="/css/phone/recent.css">
+
+<div class="recents">
+    <div class="titleR">Recent Reads</div>
+    <div class="norecent">No recent post read yet.</div>
+</div>
+
+<div class="site">
+    <a href="/about" class="siteLink">About</a> &#8226 <a href="/terms" class="siteLink">Terms</a> &#8226 <a href="/privacy" class="siteLink">Privacy</a>
+    <span class="copyright">© Universityconnect 2019</span>
+</div>
