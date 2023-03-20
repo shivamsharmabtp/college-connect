@@ -1,12 +1,9 @@
 var express = require("express");
-const _ = require("lodash");
-
-const fileName = __filename;
 
 const adminList = require("../json/adminList.json");
 var { authenticate } = require("../middleware/authenticate");
 var { University } = require("../models/universityModel");
-
+var { Course } = require("../models/courseModel");
 
 var router = express.Router();
 module.exports = router;
@@ -23,29 +20,6 @@ router.get("/adduniversity", authenticate, (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send("Error proccesing request.");
-    var err = error;
-    if (err) {
-      var apiName = req.method + " " + req.originalUrl;
-      if (typeof err == "object") {
-        var slackText =
-          "*File : " +
-          fileName +
-          "*\n*API : " +
-          apiName +
-          "*\nError - ```" +
-          JSON.stringify(err, Object.getOwnPropertyNames(err), 2) +
-          "```";
-      } else {
-        var slackText =
-          "*File : " +
-          fileName +
-          "*\n*API : " +
-          apiName +
-          "*\nError - ```" +
-          err +
-          "```";
-      }
-    }
   }
 });
 
@@ -95,47 +69,17 @@ router.post("/adduniversity", authenticate, async (req, res) => {
       university
         .save()
         .then(() => {
-         
           res.status(200).send("sucess");
         })
         .catch((e) => {
-         
-      
           res.status(400).send(e);
         });
     }
   } catch (error) {
     console.log(error);
     res.status(500).send("Error proccesing request.");
-    var err = error;
-    if (err) {
-      var apiName = req.method + " " + req.originalUrl;
-      if (typeof err == "object") {
-        var slackText =
-          "*File : " +
-          fileName +
-          "*\n*API : " +
-          apiName +
-          "*\nError - ```" +
-          JSON.stringify(err, Object.getOwnPropertyNames(err), 2) +
-          "```";
-      } else {
-        var slackText =
-          "*File : " +
-          fileName +
-          "*\n*API : " +
-          apiName +
-          "*\nError - ```" +
-          err +
-          "```";
-      }
-     
-    }
   }
 });
-
-
-
 
 router.post("/universitylist", authenticate, (req, res) => {
   try {
@@ -167,30 +111,120 @@ router.post("/universitylist", authenticate, (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send("Error proccesing request.");
-    var err = error;
-    if (err) {
-      var apiName = req.method + " " + req.originalUrl;
-      if (typeof err == "object") {
-        var slackText =
-          "*File : " +
-          fileName +
-          "*\n*API : " +
-          apiName +
-          "*\nError - ```" +
-          JSON.stringify(err, Object.getOwnPropertyNames(err), 2) +
-          "```";
-      } else {
-        var slackText =
-          "*File : " +
-          fileName +
-          "*\n*API : " +
-          apiName +
-          "*\nError - ```" +
-          err +
-          "```";
-      }
-    
-    }
   }
 });
 
+router.post("/adddep", authenticate, (req, res) => {
+  try {
+    if (req.user == null) {
+      res.status(401).send("User not found!");
+    } else {
+      University.findOneAndUpdate(
+        { shortName: req.body.university },
+        { $push: { departments: req.body.name } },
+        (err, result) => {
+          if (err) {
+            res.status(500).send("Error occured" + err);
+          } else {
+            res.status(200).send("Success");
+          }
+        }
+      );
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error proccesing request.");
+  }
+});
+
+router.get("/universityDepList/:university", (req, res) => {
+  try {
+    University.findOne({ shortName: req.params.university }, (err, doc) => {
+      if (err || doc == null) {
+        console.log(err);
+        res.send(null);
+        return;
+      } else {
+        res.json(doc.departments);
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error proccesing request.");
+  }
+});
+
+router.post("/courseList", (req, res) => {
+  try {
+    Course.find({ university: req.body.university }, (err, docs) => {
+      if (err) {
+        console.log(err);
+      } else {
+        var courseNames = [];
+        docs.forEach((doc) => {
+          courseNames.push(doc.name);
+        });
+        res.json(courseNames);
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error proccesing request.");
+  }
+});
+
+router.get("/:university", authenticate, async (req, res) => {
+  try {
+    var li = req.cookies.li;
+    let courses = await Course.find({
+      university: req.params.university,
+    }).exec();
+    let courseData = [];
+    for (let i = 0; i < courses.length; i++) {
+      courseData.push({
+        name: courses[i].name,
+        shortName: courses[i].shortName,
+        _id: courses[i]._id,
+        university: req.params.university,
+      });
+    }
+    University.findOne({ shortName: req.params.university }, (err, doc) => {
+      if (err || doc == null) {
+        console.log(err);
+        res.render("error");
+        return;
+      } else {
+        if (doc.status != "trial" || true) {
+          res.render("university", {
+            li: li,
+            title: doc.name,
+            address: doc.address,
+            description: doc.description,
+            picture: doc.picture,
+            imgUrl: doc.picture,
+            courseData: courseData,
+          });
+        } else {
+          if (req.user) {
+            if (
+              adminList.includes(req.user.email) ||
+              doc.creator == req.user.id
+            ) {
+              res.render("university", {
+                li: li,
+                title: doc.name,
+                address: doc.address,
+                description: doc.description,
+                picture: doc.picture,
+                courseData: [],
+              });
+            } else res.render("error");
+          } else res.render("error");
+        }
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error proccesing request.");
+  }
+});

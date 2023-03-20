@@ -12,6 +12,7 @@ var universitiesRoutes = require("./routes/universitiesApi");
 var universityRoutes = require("./routes/universityApi");
 var uploadRoutes = require("./routes/upload");
 var adminRoutes = require("./routes/adminApi");
+var courseRoutes = require("./routes/courseApi");
 
 var { mongoose } = require("./db/mongoose");
 
@@ -40,7 +41,7 @@ app.use("/user", userRoutes);
 app.use("/universities", universitiesRoutes);
 app.use("/university", universityRoutes)
 app.use("/upload", uploadRoutes);
-app.use("/upload", uploadRoutes);
+app.use("/course", courseRoutes);
 app.use("/admin", adminRoutes);
 app.use("/", mainRoutes);
 
@@ -52,8 +53,7 @@ app.use(function (req, res, next) {
 
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
-  console.log("Error occured in matching route.");
-  console.log(err);
+  console.log("Error occured in matching route " + req.originalUrl);
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 

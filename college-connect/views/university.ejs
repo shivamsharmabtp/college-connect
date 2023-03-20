@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <title><%= title%> - University Connect</title>
+    <% include ./partials/head %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="/js/deps.js"></script>
+    <link rel="stylesheet" href="/css/university.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (min-width: 320px) and (max-width: 900px)"
+      href="/css/phone/university.css"
+    />
+  </head>
+  <body onload="loaded()">
+    <div class="loading">
+      <div class="loading-header"></div>
+      <div class="loading-cnt"><% include ./partials/loading %></div>
+    </div>
+    <div class="header"><% include ./partials/header-li %></div>
+    <div class="main-container">
+      <div class="left"><% include ./partials/left %></div>
+      <div class="center">
+        <div class="university-cnt">
+          <div class="title"><%= title%></div>
+          <div class="about">
+            <div class="descp-cnt">
+              <div class="address"><%= address%></div>
+              <div class="description"><%= description%></div>
+            </div>
+            <div
+              class="photo"
+              style="background-image: url('<%= picture%>')"
+            ></div>
+          </div>
+
+          <div class="clg-containers">
+            <div class="resource-cnt-wrapper clg-cnt">
+              <div class="resource-cnt">
+                <div class="navigator">
+                  <span class="back noselect">back</span>
+                  <span class="current-dep"></span>
+                  <span class="seperator hidden">/</span>
+                  <span class="current-sem"></span>
+                </div>
+                <div class="departments">
+                  <!--div class="label">Field of study</div-->
+                  <div class="label">
+                    <div class="txt">Departments</div>
+                    <div class="adddepbtn addbtn">Add New Department</div>
+                  </div>
+                  <div class="add-dep-wrapper hidden">
+                    <div class="adddep">
+                      <input
+                        type="text"
+                        class="d-name"
+                        placeholder="Department Name"
+                      />
+                      <span class="d-save btn">Add</span>
+                    </div>
+                  </div>
+                  <div class="selectbox"></div>
+                </div>
+                <div class="hidden semesters">
+                  <div class="label">Choose course category</div>
+                  <div id="semList"></div>
+                </div>
+                <div class="hidden courses">
+                  <div class="label">
+                    <div class="txt">Courses</div>
+                    <div class="addcoursebtn addbtn">Add New Course</div>
+                  </div>
+                  <div class="add-course-wrapper hidden">
+                    <div class="addcourse ui-widget">
+                      <input
+                        type="text"
+                        class="c-name"
+                        id="courseName"
+                        placeholder="Course Name"
+                      />
+                      <span class="c-save btn">Create</span>
+                    </div>
+                  </div>
+                  <span class="notyet hidden"
+                    >No course added yet.
+                    <span
+                      class="addcoursebtn"
+                      style="text-decoration: underline; cursor: pointer"
+                      >Click here</span
+                    >
+                    to create new.</span
+                  >
+                  <span class="spinner">Loading...</span>
+                  <div class="c-list"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--div class="mobileLeft">
+                    <div class="left"> <% include ./partials/left %> </div>
+                </div-->
+      </div>
+      <div class="right"><% include ./partials/right %></div>
+      <% include ./partials/toast %>
+    </div>
+
+    <script src="/js/university.js"></script>
+  </body>
+</html>

@@ -145,12 +145,6 @@ const deps = [
   },
   {
     sems: ["Theory", "Lab"],
-    name: "First Year Common",
-    pos: 26,
-    shortName: "firstyear",
-  },
-  {
-    sems: ["Theory", "Lab"],
     name: "Metallurgy",
     pos: 28,
     shortName: "metallurgy",
