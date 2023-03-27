@@ -4,6 +4,7 @@ const adminList = require("../json/adminList.json");
 var { authenticate } = require("../middleware/authenticate");
 var { University } = require("../models/universityModel");
 var { Course } = require("../models/courseModel");
+var { File } = require("../models/fileModel");
 
 var router = express.Router();
 module.exports = router;
@@ -92,6 +93,10 @@ router.post("/universitylist", authenticate, (req, res) => {
           shortName: doc[i].shortName,
           address: doc[i].address,
           status: doc[i].status,
+          courseCount: await Course.countDocuments({
+            university: doc[i].shortName,
+          }),
+          docCount: await File.countDocuments({ university: doc[i].shortName }),
         };
         if (doc[i].status != "trial") {
           universityData.push(cData);
