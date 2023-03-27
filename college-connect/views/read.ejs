@@ -1,0 +1,40 @@
+<html>
+  <!--==standard==-->
+  <head>
+    <title><%= title%> - College Connect</title>
+
+    <% include ./partials/head %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="/js/read.js"></script>
+    <script src="/js/deps.js"></script>
+    <link rel="stylesheet" href="/css/read.css" />
+    <link rel="stylesheet" href="/css/fileList.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (min-width: 320px) and (max-width: 900px)"
+      href="/css/phone/read.css"
+    />
+  </head>
+  <body onload="loaded()">
+    <div class="maincontainer">
+      <div class="loading">
+        <div class="loading-header"></div>
+        <div class="loading-cnt"><% include ./partials/loading %></div>
+      </div>
+      <div class="header"><% include ./partials/header-li %></div>
+      <div class="main-container">
+        <div class="read">
+          <div class="primary">
+            
+          </div>
+          <div class="secondary">
+            <div class="title">Related</div>
+            <div class="notfound" hidden>No results found.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% include ./partials/toast %>
+  </body>
+</html>
