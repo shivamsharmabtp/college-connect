@@ -3,6 +3,7 @@ var express = require("express");
 var { authenticate } = require("./../middleware/authenticate");
 var { Course } = require("./../models/courseModel");
 var deps = require("./../public/js/deps");
+const notifySlack = require("./../lib/slackNotifier");
 
 var router = express.Router();
 module.exports = router;
@@ -47,6 +48,7 @@ router.post("/addcourse", authenticate, async (req, res) => {
               course
                 .save()
                 .then(() => {
+                  notifySlack(`New Course Added : ${body.name} in ${body.university}.`, "course-alerts")
                   res.status(200).send("Course created and saved!");
                 })
                 .catch((e) => {

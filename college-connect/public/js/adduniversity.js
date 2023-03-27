@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $(".js-example-basic-multiple").select2({
-    placeholder: "Choose departments",
+    placeholder: "Choose Departments of Study",
     dropdownAutoWidth: true,
   });
 
