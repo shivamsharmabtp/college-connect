@@ -1,0 +1,225 @@
+.course-cnt {
+    width: calc(100% - 100px);
+    background: #fff;
+    padding: 50px;
+    padding-top: 15px;
+}
+
+.title {
+    font-weight: bold;
+    border-bottom: 1px solid #999;
+    font-size: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.adddocbtn {
+    background-image: url(/images/sprites/main-32.png);
+    height: 32px;
+    padding-left: 40px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-position-y: -192px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+    width: fit-content;
+    font-weight: normal;
+}
+
+.adddoc {
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-flow: column;
+}
+
+.chooser {
+    display: flex;
+    width: 85%;
+    border: 1px solid;
+    margin-bottom: 20px;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+.addfilebtn {
+    border-right: 1px solid;
+    border-bottom-left-radius: 100px;
+}
+
+
+.chooser > * {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 15px;
+    transition: all .3s ease-out;
+}
+
+.chooser > *:hover {
+    background: #a33a47;
+}
+
+.chooser > div:hover {
+    background: #a33a47;
+    color: #fff;
+}
+
+.addfile > input , .addurl > input {
+    padding: 5px;
+    border: 0;
+    border-bottom: 1px solid;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+.addfile {
+    display: flex;
+    flex-flow: column;
+}
+
+select.filetype {
+    padding: 5px;
+    margin-bottom: 15px;
+    outline: none;
+    border-radius: 5px;
+}
+
+input.addpdf {
+    border: 0;
+}
+
+.save {
+    padding: 7px;
+    width: fit-content;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #777;
+    margin-bottom: 20px;
+}
+
+.save:hover {
+    background: #a33a47;
+    border: 1px solid #a33a47;
+    color: #fff;
+}
+
+.label {
+    margin-bottom: 10px;
+    margin-top: 15px;
+    color: #555;
+    font-size: 14px;
+}
+
+.file {
+    margin-bottom: 15px;
+    padding-left: 5px;
+    transition: border .3s;
+    background: #fff;
+    padding: 6px;
+    box-shadow: 0px 1px 2px #ccc;
+    padding-left: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: initial;
+}
+
+
+.bottom {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.addurl {
+    display: flex;
+    flex-flow: column;
+}
+
+.file:hover {
+}
+
+span.uploader {
+    font-weight: bold;
+}
+
+span.nothingyet {
+    font-size: 12px;
+    color: #777;
+}
+
+
+.general {
+    background: #eee;
+    padding: 12px;
+    box-shadow: 0px 1px 1px #aaa inset;
+}
+
+.commentbox {
+    margin-top: 35px;
+}
+
+.qp {
+    background: #eee;
+    padding: 6px;
+    box-shadow: 0px 2px 4px #aaa inset;
+}
+
+.ass {
+    background: #eee;
+    padding: 6px;
+    box-shadow: 0px 2px 4px #aaa inset;
+}
+
+.books {
+    background: #eee;
+    padding: 6px;
+    box-shadow: 0px 2px 4px #aaa inset;
+}
+.doc-cnt>*:nth-child(odd) {
+    padding: 12px;
+    box-shadow: 0px 1px 1px #aaa inset;
+}
+
+.doc-cnt>*:nth-child(even) {
+    margin-top: 33px;
+}
+span.fileType {
+    float: left;
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    position: relative;
+    top: 10px;
+    background-image: url('/images/sprites/main-32.png');
+    margin-left: 10px;
+}
+.addurlbtn {
+    border-bottom-right-radius: 100px;
+}
+.bulkUpload {
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+select.f.filetypeMultiple {
+    padding: 5px;
+    margin-bottom: 15px;
+    outline: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-right: 30px;
+}
