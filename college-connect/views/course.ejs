@@ -34,7 +34,85 @@
             <div class="txt"><%= name %></div>
             <div class="adddocbtn">Add Document</div>
           </div>
-          
+          <div class="add-doc-wrapper hidden">
+            <div class="adddoc">
+              <div class="chooser">
+                <div class="addfilebtn">Upload File</div>
+                <div class="addurlbtn">Paste Url</div>
+              </div>
+              <div class="uploader-wrapper addfile-wrapper hidden">
+                <div class="uploader addfile">
+                  <div class="status"></div>
+                  <input type="file" class="addpdf" />
+                  <input
+                    type="text"
+                    class="f name"
+                    placeholder="Name of document"
+                  />
+                  <input
+                    type="text"
+                    class="f description"
+                    placeholder="Description (Optional)"
+                  />
+                  <select class="f filetype">
+                    <option value="0">Choose category</option>
+                    <option value="1">General</option>
+                    <option value="2">Question Paper</option>
+                    <option value="3">Assignment</option>
+                    <option value="4">Book</option>
+                  </select>
+                  <div class="save f">Save</div>
+
+                  <div class="bulkUpload">
+                    <div class="smallTitle">Bulk Upload</div>
+                    <div class="notice">
+                      <b>Note</b> : The document names will be the names of
+                      file. So rename files to proper names before uploading.
+                    </div>
+                    <select class="f filetypeMultiple">
+                      <option value="1">General</option>
+                      <option value="2">Question Papers</option>
+                      <option value="3">Assignments</option>
+                      <option value="4">Books</option>
+                    </select>
+                    <input type="file" class="addmanypdf" multiple />
+                  </div>
+
+                  <span class="convert hidden"
+                    >Allowed formats - Pdf, Doc, PPt & Png</span
+                  >
+                </div>
+              </div>
+              <div class="uploader-wrapper addurl-wrapper hidden">
+                <div class="uploader addurl">
+                  <input
+                    type="text"
+                    placeholder="Paste Url"
+                    onblur="setName()"
+                    class="u url"
+                  />
+                  <input
+                    type="text"
+                    class="u name"
+                    placeholder="Name of document"
+                  />
+                  <input
+                    type="text"
+                    class="u description"
+                    placeholder="Description (Optional)"
+                  />
+                  <select class="u filetype">
+                    <option value="0">Choose category</option>
+                    <option value="1">General</option>
+                    <option value="2">Question Paper</option>
+                    <option value="3">Assignment</option>
+                    <option value="4">Book</option>
+                  </select>
+                  <div class="save u">Save</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="right"><% include ./partials/right %></div>
