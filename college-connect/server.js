@@ -14,6 +14,7 @@ var uploadRoutes = require("./routes/upload");
 var adminRoutes = require("./routes/adminApi");
 var courseRoutes = require("./routes/courseApi");
 var fileRoutes = require("./routes/fileApi");
+var readRoutes = require("./routes/readApi");
 
 var { mongoose } = require("./db/mongoose");
 
@@ -40,13 +41,13 @@ if (config.env == "local") {
 // All api calls will be handled here
 app.use("/user", userRoutes);
 app.use("/universities", universitiesRoutes);
-app.use("/university", universityRoutes)
+app.use("/university", universityRoutes);
 app.use("/upload", uploadRoutes);
 app.use("/course", courseRoutes);
 app.use("/admin", adminRoutes);
 app.use("/file", fileRoutes);
+app.use("/read", readRoutes);
 app.use("/", mainRoutes);
-
 
 // All api calls which could not be matched go here
 app.use(function (req, res, next) {
