@@ -15,6 +15,25 @@
       media="screen and (min-width: 320px) and (max-width: 900px)"
       href="/css/phone/read.css"
     />
+    <script>
+      var pageData = {
+        pageId: "<%= pageId %>",
+        pageType: "read-main",
+        university: "<%= universityId %>",
+      };
+      var documentPath = "<%= path%>";
+      $("document").ready(() => {
+        if ("<%= type %>" == "file") {
+          $(".pdfrdr").html(
+            '<iframe data-hj-allow-iframe src="/pdfjs/web/viewer.html?file=' +
+              "<%= url %>" +
+              '" >'
+          );
+        } else if ("<%= type %>" == "link" || "<%= type %>" == "video") {
+          $(".newtabLink").attr("href", "<%= url %>");
+        }
+      });
+    </script>
   </head>
   <body onload="loaded()">
     <div class="maincontainer">
@@ -26,7 +45,79 @@
       <div class="main-container">
         <div class="read">
           <div class="primary">
-            
+            <div class="reader">
+              <div class="pdfrdr">
+                <div class="otherLink">
+                  <span class="notice"
+                    ><a href="#" target="_blank" class="newtabLink"
+                      >Click here</a
+                    >
+                    to open the link in new tab.</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="details">
+              <div class="title"><%= title%></div>
+              <div class="info">
+                <div class="views"><%= views%> Views</div>
+                <div class="actions">
+                  <!--Add Like Dislike and Share actions-->
+                </div>
+              </div>
+              <div class="uploader">
+                <div class="author">
+                  <div class="author-details">
+                    <div
+                      class="author-pic"
+                      style="background-image: url('<%= authorImage%>')"
+                    ></div>
+                    <a href="/user/<%= authorId%>">
+                      <div class="author-name"><%= authorName%></div>
+                    </a>
+                  </div>
+                  <div class="subscribe"></div>
+                </div>
+                <div class="description"><%- description%></div>
+              </div>
+              <div class="secondaryMobile">
+                <div class="title">Related</div>
+                <div class="notfound" hidden>No results found.</div>
+              </div>
+              <div class="comment-box">
+                <div class="title"></div>
+                <div id="disqus_thread"></div>
+                <script>
+                  /**
+                   *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                   *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                  currentUrl = new URL(window.location.href);
+                  var fileId = currentUrl.searchParams.get("v");
+                  var disqus_config = function () {
+                    this.page.url =
+                      window.location.href.split("?")[0] +
+                      "/?v=" +
+                      currentUrl.searchParams.get("v"); // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = "read-main-" + fileId; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                  };
+
+                  (function () {
+                    // DON'T EDIT BELOW THIS LINE
+                    var d = document,
+                      s = d.createElement("script");
+                    s.src = "https://magguland-1.disqus.com/embed.js";
+                    s.setAttribute("data-timestamp", +new Date());
+                    (d.head || d.body).appendChild(s);
+                  })();
+                </script>
+                <noscript
+                  >Please enable JavaScript to view the
+                  <a href="https://disqus.com/?ref_noscript"
+                    >comments powered by Disqus.</a
+                  ></noscript
+                >
+              </div>
+            </div>
           </div>
           <div class="secondary">
             <div class="title">Related</div>
