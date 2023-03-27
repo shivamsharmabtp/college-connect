@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title><%= name %> - College Connect</title>
+    <% include ./partials/head %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <link rel="stylesheet" href="/css/course.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (min-width: 320px) and (max-width: 900px)"
+      href="/css/phone/course.css"
+    />
+
+    <script>
+      var pageData = {
+        university: "<%= universityId %>",
+        pageId: "<%= pageId %>",
+        pageType: "course-main",
+      };
+    </script>
+    <script src="/js/course.js"></script>
+  </head>
+  <body onload="loaded()">
+    <div class="loading">
+      <div class="loading-header"></div>
+      <div class="loading-cnt"><% include ./partials/loading %></div>
+    </div>
+    <div class="header"><% include ./partials/header-li %></div>
+    <div class="main-container">
+      <div class="left"><% include ./partials/left %></div>
+      <div class="center">
+        <div class="course-cnt">
+          <div class="title">
+            <div class="txt"><%= name %></div>
+            <div class="adddocbtn">Add Document</div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="right"><% include ./partials/right %></div>
+      <% include ./partials/toast %>
+    </div>
+  </body>
+</html>

@@ -98,6 +98,29 @@ router.post("/list", (req, res) => {
   }
 });
 
+router.get("/:cName", async (req, res) => {
+  try {
+    Course.findOne({ _id: req.query.v }, (err, doc) => {
+      //console.log(doc)
+      if (err || doc == null) {
+        res.render("error");
+      } else {
+        res.render("course", {
+          name: doc.name,
+          pageId: doc._id,
+          universityId: doc.university,
+          title: doc.name,
+          description: doc.department + " " + doc.university,
+          imgUrl: getImageUrl(doc.department)
+        });
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error proccesing request.");
+  }
+});
+
 function getImageUrl(dep) {
   for (let i = 0; i < deps.length; i++) {
     if (deps[i].shortName == dep) {
