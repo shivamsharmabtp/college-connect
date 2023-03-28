@@ -1,0 +1,42 @@
+.file {
+    margin-top: 15px;
+    color: #005999;
+    text-decoration: none;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.bottom {
+    color: #777;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.file:hover {
+    color: #3af;
+}
+
+.thumbnail {
+    text-decoration: none;
+    background: url(/images/sprites/deps-64.png);
+    background-repeat: no-repeat;
+    height: 64px;
+    width: 64px;
+}
+
+.file-details {
+    width: calc(100% - 74px);
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.bottom > a {
+    color: #777;
+}
+
+.bottom > a:hover {
+    text-decoration: underline;
+}
