@@ -15,6 +15,7 @@ var adminRoutes = require("./routes/adminApi");
 var courseRoutes = require("./routes/courseApi");
 var fileRoutes = require("./routes/fileApi");
 var readRoutes = require("./routes/readApi");
+var viewRoutes = require("./routes/viewApi");
 
 var { mongoose } = require("./db/mongoose");
 
@@ -47,6 +48,7 @@ app.use("/course", courseRoutes);
 app.use("/admin", adminRoutes);
 app.use("/file", fileRoutes);
 app.use("/read", readRoutes);
+app.use("/view", viewRoutes);
 app.use("/", mainRoutes);
 
 // All api calls which could not be matched go here
