@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>College Connect - Community of learners!</title>
+    <% include ./partials/head %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="/js/deps.js"></script>
+    <link rel="stylesheet" href="/css/search.css" />
+    <link rel="stylesheet" href="/css/fileList.css" />
+    <link
+      rel="stylesheet"
+      media="screen and (min-width: 320px) and (max-width: 900px)"
+      href="/css/phone/search.css"
+    />
+    <script src="/js/search.js"></script>
+
+  </head>
+  <body onload="loaded()">
+    <div class="loading">
+      <div class="loading-header"></div>
+      <div class="loading-cnt"><% include ./partials/loading %></div>
+    </div>
+    <div class="header"><% include ./partials/header-li %></div>
+    <div class="main-container">
+      <div class="left"><% include ./partials/left %></div>
+      <div class="center">
+        <div class="searchResult">
+          <div class="title">Search Results</div>
+          <div class="notfound">No results found.</div>
+          <span class="spinner" style="margin-top: 20px"></span>
+          <div class="searchResultList"></div>
+        </div>
+      </div>
+      <div class="right"><% include ./partials/right %></div>
+    </div>
+  </body>
+</html>
