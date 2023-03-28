@@ -1,0 +1,24 @@
+.searchResult {
+    width: calc(100% - 100px);
+    background: #fff;
+    padding: 50px;
+}
+
+.course-cnt {
+    width: 600px;
+    background: #fff;
+    padding: 50px;
+    padding-top: 15px;
+}
+
+.file-details {
+    width: calc(100% - 74px);
+    margin-left: 10px;
+}
+
+
+.notfound {
+    margin-top: 30px;
+    color: #777;
+    display: none;
+}
