@@ -16,6 +16,18 @@ router.get('/search', (req, res) => {
 }
 })
 
+router.get('/about', (req, res) => {
+  try {
+  var li = req.cookies.li
+  res.render('about', {
+      li : li
+  });
+} catch (error) {
+  console.log(error);
+  res.status(500).send('Error proccesing request.');
+}
+})
+
 /* Homepage */
 router.get("/", (req, res) => {
   try {
