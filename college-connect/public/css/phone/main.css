@@ -1,0 +1,18 @@
+.introbox {width: 80%;}
+
+.desc {
+    text-align: center;
+    font-size: 12px;
+}
+
+.ml {
+    font-size: 30px;
+}
+
+.tagline {
+    font-size: 14px;
+}
+
+a.action {
+    margin-top: 20px;
+}

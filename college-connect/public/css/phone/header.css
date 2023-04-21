@@ -1,0 +1,43 @@
+.header {
+  width: 100%;
+}
+
+.main-container {
+  width: 100%;
+  background-size: 210% 100%;
+  background-repeat: no-repeat;
+  background-position-x: -200px;
+}
+
+.profileLink {
+  display: none;
+}
+
+.option-item > .profileLink {
+  display: initial;
+}
+
+.text {
+  display: none;
+}
+
+.home > .icon-header {
+  display: initial;
+}
+
+.university > .icon-header {
+  display: inherit;
+  background-position-y: -32px;
+}
+
+.header > * {
+  margin-right: 12px;
+}
+
+.main-container > .left {
+  display: none;
+}
+
+.main-container > .right {
+  display: none;
+}

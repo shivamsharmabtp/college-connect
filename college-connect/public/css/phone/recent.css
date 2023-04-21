@@ -1,0 +1,48 @@
+.recents {
+    background: rgba(255,255,255,0.3);
+    height: fit-content;
+    width: 300px;
+    padding-bottom: 10px;
+}
+
+a.fileLinkR {
+    font-size: 12px;
+}
+
+.norecent{
+    font-size: 12px;
+    color: #777;
+    margin: 10px;
+}
+
+.titleR {
+    background: #A33A47;
+    color: #fff;
+    padding: 5px;
+}
+
+.fileR {
+    margin-left: 10px;
+    margin-top: 15px;
+}
+.site {
+    margin-top: 20px;
+    padding: 10px;
+    color: rgba(0,0,0,.6);
+    flex-wrap: wrap;
+    font-size: 13px;
+    background: rgba(0,0,0,.05);
+    justify-content: space-between;
+}
+
+a.siteLink {
+    color: rgba(0,0,0,.6);
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+span.copyright {
+    display: block;
+    margin-top: 4px;
+    margin-left: 71px;
+}
