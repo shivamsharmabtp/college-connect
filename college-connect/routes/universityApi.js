@@ -5,6 +5,7 @@ var { authenticate } = require("../middleware/authenticate");
 var { University } = require("../models/universityModel");
 var { Course } = require("../models/courseModel");
 var { File } = require("../models/fileModel");
+const notifySlack = require("../lib/slackNotifier");
 
 var router = express.Router();
 module.exports = router;
@@ -31,35 +32,6 @@ router.post("/adduniversity", authenticate, async (req, res) => {
       var body = JSON.parse(req.body.data);
       body.creator = req.user.id;
       body.createdOn = new Date().getTime();
-      body.departments = body.departments
-        ? body.departments
-        : [
-            "electrical",
-            "geology",
-            "aerospace",
-            "ocean-engineering",
-            "industrial",
-            "mining",
-            "law",
-            "manufacturing",
-            "architecture",
-            "chemical",
-            "chemistry",
-            "civil-engineering",
-            "computer-science",
-            "ece",
-            "mathematics",
-            "humanities",
-            "bio-technology",
-            "agriculture",
-            "mechanical",
-            "physics",
-            "entrepreneurship",
-            "finance",
-            "rubber",
-            "placement",
-            "firstyear",
-          ];
       body.status = "trial";
       body.shortName = body.name
         .toLowerCase()
@@ -71,6 +43,10 @@ router.post("/adduniversity", authenticate, async (req, res) => {
         .save()
         .then(() => {
           res.status(200).send("sucess");
+          notifySlack(`New University Added : *${body.name}*.\n
+          
+          <http://localhost/university/${body.shortName}/updateStatus/active|✅ *Approve*>      |       <http://localhost/university/${body.shortName}/updateStatus/trial|*❌ Reject*>
+          `, "university-alerts");
         })
         .catch((e) => {
           res.status(400).send(e);
@@ -81,6 +57,29 @@ router.post("/adduniversity", authenticate, async (req, res) => {
     res.status(500).send("Error proccesing request.");
   }
 });
+
+router.get("/:university/updateStatus/:status", authenticate, (req, res) => {
+  try {
+    if (req.user && adminList.includes(req.user.email)){
+      University.findOneAndUpdate(
+        { shortName: req.params.university },
+        { status: req.params.status },
+        (err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            res.status(200).send("sucess");
+          }
+        }
+      );
+    }else{
+      res.send("Unauthorized");
+    }
+  } catch (error) {
+    res.status(500).send("Error proccesing request.");
+    console.log(error);
+  }
+})
 
 router.post("/universitylist", authenticate, (req, res) => {
   try {
