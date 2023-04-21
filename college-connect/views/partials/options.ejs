@@ -1,0 +1,97 @@
+<script src="https://apis.google.com/js/platform.js" defer></script>
+<meta
+  name="google-signin-client_id"
+  content="66303115487-9khj5u66bs0vukej6skuc7ih5egltsa6.apps.googleusercontent.com"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+<script>
+  function onLoad() {
+    if (
+      window.location.href.includes("magguland") ||
+      window.location.href.includes("universityeks")
+    ) {
+      $('[name="google-signin-client_id"]').attr(
+        "content",
+        "66303115487-h6re1m774dv6kavu6ga9af53f20jvl3l.apps.googleusercontent.com"
+      );
+    } else
+      $('[name="google-signin-client_id"]').attr(
+        "content",
+        "312975383578-aoia4cu34demtrstbhdkhg6shhjbiedc.apps.googleusercontent.com"
+      );
+    gapi.load("auth2", function () {
+      gapi.auth2.init();
+    });
+  }
+
+  $("document").ready(() => {
+    onLoad();
+    $(".options").click(function (e) {
+      $(".menu-options").css(
+        "right",
+        $(window).width() -
+          $(".options").position().left -
+          $(".options").width()
+      );
+      $(".menu-options").toggle();
+      e.stopPropagation();
+    });
+
+    $(document.body).click(function () {
+      $(".menu-options").hide();
+    });
+
+    $(".menu-options").click(function (e) {
+      e.stopPropagation();
+    });
+    $(".logout").click(() => {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        $.cookie("li", 0);
+        $.ajax({
+          url: "/user/logout",
+          method: "POST",
+        })
+          .done(function () {
+            localStorage.setItem("x-auth", "");
+            window.location = "/user/signin";
+          })
+          .fail(function (jqXHR, status, error) {
+            console.log("logout request failed: " + jqXHR.status);
+          });
+      });
+    });
+  });
+</script>
+
+<div class="menu-options" tabindex="0">
+  <div class="option-list">
+    <div class="option-item">
+      <a href="#" class="profileLink">
+        <div class="userInfo">
+          <div class="profile-pic p1"></div>
+          <div class="name n1"></div>
+        </div>
+      </a>
+    </div>
+    <div class="option-item">
+      <a href="/universities" class="optionLink">All Universities</a>
+    </div>
+    <div class="option-item">
+      <a href="/university/adduniversity" class="optionLink">Add University</a>
+    </div>
+    <div class="option-item">
+      <a href="/about" class="optionLink">About</a>
+    </div>
+    <div class="option-item">
+      <a href="/terms" class="optionLink">Terms</a>
+    </div>
+    <div class="option-item">
+      <a href="/privacy" class="optionLink">Privacy</a>
+    </div>
+    <div class="option-item">
+      <div class="logout">Log Out</div>
+    </div>
+  </div>
+</div>
