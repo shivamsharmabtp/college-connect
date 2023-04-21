@@ -26,6 +26,18 @@ router.get('/about', (req, res) => {
   console.log(error);
   res.status(500).send('Error proccesing request.');
 }
+});
+
+router.get('/privacy', (req, res) => {
+  try {
+    var li = req.cookies.li
+    res.render('privacy', {
+        li : li
+    })
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Error proccesing request.');
+  }
 })
 
 /* Homepage */
