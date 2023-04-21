@@ -38,6 +38,18 @@ router.get('/privacy', (req, res) => {
     console.log(error);
     res.status(500).send('Error proccesing request.');
   }
+});
+
+router.get('/terms', (req, res) => {
+  try {
+    var li = req.cookies.li;
+    res.render('terms', {
+        li : li
+    })
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Error proccesing request.');
+  }
 })
 
 /* Homepage */
