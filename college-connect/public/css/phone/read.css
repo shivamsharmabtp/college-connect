@@ -1,0 +1,12 @@
+.secondary {
+    display: none;
+}
+
+.secondaryMobile {
+    margin-top: 20px;
+    display: block;
+}
+
+.reader {
+    height: 390px;
+}
