@@ -6,9 +6,12 @@ const adminList = require("./../json/adminList.json");
 var { authenticate } = require("./../middleware/authenticate");
 var Collections = {
   University: require("./../models/universityModel").University,
-  User: require("./../models/userModel").User
+  User: require("./../models/userModel").User,
+  Course: require("./../models/courseModel").Course,
+  File: require("./../models/fileModel").File,
 };
 
+var notifySlack = require("../lib/slackNotifier");
 
 var router = express.Router();
 module.exports = router;
@@ -26,7 +29,6 @@ router.get("/", authenticate, (req, res) => {
   } catch (error) {
     console.log(error);
     res.send("error");
-    
   }
 });
 
@@ -47,6 +49,7 @@ router.post("/get/:collection", authenticate, async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send("Error proccesing request.");
+    
   }
 });
 
@@ -66,6 +69,7 @@ router.post("/edit/:collection", authenticate, async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send("Error processing request");
+    
   }
 });
 
@@ -84,6 +88,7 @@ router.post("/delete/:collection", authenticate, async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send("Error processing request");
+    
   }
 });
 
@@ -119,5 +124,46 @@ var collectionDataParser = {
       });
     });
     return jsonData;
-  }
+  },
+
+  Course: (data) => {
+    var jsonData = [];
+    data.forEach((course) => {
+      jsonData.push({
+        _id: course._id,
+        creator: course.creator,
+        name: course.name,
+        shortName: course.shortName,
+        department: course.department,
+        university: course.university,
+        paths: course.paths,
+        createdOn: course.createdOn,
+      });
+    });
+    return jsonData;
+  },
+
+  File: (data) => {
+    var jsonData = [];
+    data.forEach((file) => {
+      jsonData.push({
+        _id: file._id,
+        name: file.name,
+        url: file.url,
+        category: file.category,
+        author: file.author,
+        university: file.university,
+        courses: file.courses,
+        courseIds: file.courseIds,
+        type: file.type,
+        uniqueId: file.uniqueId,
+        description: file.description,
+      });
+    });
+    return jsonData;
+  },
+
+  Visit: (data) => {
+    return data;
+  },
 };
