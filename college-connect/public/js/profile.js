@@ -75,20 +75,20 @@ function loadDocs() {
 
 function setupBasicInfo(data) {
   if (data.userId) {
-    if (data.userId == window.location.href.split("/")[4].replace("#", "")) {
-      $(".edit").show();
-      $("[for=tab2]").show();
-      $(".google").children()[0].style.backgroundImage =
-        "url(" + data.googlePhoto + ")";
-      eHash = md5(data.email);
-      $(".identicon").children()[0].style.backgroundImage =
-        'url("https://gravatar.com/avatar/' +
-        eHash +
-        '?s=100&d=identicon&f=y")';
-      $(".gravatar").children()[0].style.backgroundImage =
-        'url("https://www.gravatar.com/avatar/' + eHash + '?s=100&d=robohash")';
-      $(".gravatar-link").attr("href", "http://gravatar.com/" + eHash);
-    }
+    // if (data.userId == window.location.href.split("/")[4].replace("#", "")) {
+    //   $(".edit").show();
+    //   $("[for=tab2]").show();
+    //   //$(".google").children()[0].style.backgroundImage =
+    //     "url(" + data.googlePhoto + ")";
+    //   eHash = md5(data.email);
+    //  // $(".identicon").children()[0].style.backgroundImage =
+    //     'url("https://gravatar.com/avatar/' +
+    //     eHash +
+    //     '?s=100&d=identicon&f=y")';
+    //   $(".gravatar").children()[0].style.backgroundImage =
+    //     'url("https://www.gravatar.com/avatar/' + eHash + '?s=100&d=robohash")';
+    //   $(".gravatar-link").attr("href", "http://gravatar.com/" + eHash);
+    // }
   }
   data.userId
     ? data.userId == window.location.href.split("/")[4].replace("#", "")
@@ -102,8 +102,8 @@ function setupBasicInfo(data) {
     aboutMe[0].textContent = "Not Available";
     aboutMe[0].style.color = "#aaa";
   }
-  if (data.university && data.university != "Not Available") {
-    aboutMe[1].textContent = data.university;
+  if (data.college && data.college != "Not Available") {
+    aboutMe[1].textContent = data.college;
   } else {
     aboutMe[1].textContent = "Not Available";
     aboutMe[1].style.color = "#aaa";
@@ -150,8 +150,7 @@ function setupDocsInfo(data) {
         data[i].university +
         "</a>/" +
         data[i].pathData.department +
-        "/" +
-        data[i].pathData.paths[0].semester +
+       
         '/<a href="/course/' +
         data[i].pathData.shortName +
         "?university=" +
@@ -170,7 +169,7 @@ function setupDocsInfo(data) {
 function updateBasic() {
   userData = {
     description: $(".detail-value-text")[0].textContent,
-    university: $(".detail-value-text")[1].textContent,
+    college: $(".detail-value-text")[1].textContent,
     department: $(".detail-value-text")[2].textContent,
   };
   $.ajax({

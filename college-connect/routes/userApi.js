@@ -222,7 +222,7 @@ router.post("/getBasic", authenticate, async (req, res) => {
     res.json({
       userId: req.user ? req.user.id : "",
       description: await userDetail(body.id, "description"),
-      university: await userDetail(body.id, "university"),
+      college: await userDetail(body.id, "college"),
       department: await userDetail(body.id, "department"),
       profilePicture: await userDetail(body.id, "profilePicture"),
       googlePhoto: await userDetail(body.id, "googlePhoto"),
