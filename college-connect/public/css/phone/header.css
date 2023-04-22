@@ -25,6 +25,11 @@
   display: initial;
 }
 
+.goldmine > .icon-header {
+  display: initial;
+  background-position-y: -32px;
+}
+
 .university > .icon-header {
   display: inherit;
   background-position-y: -32px;
