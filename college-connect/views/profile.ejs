@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title><%= name%></title>
+        <% include ./partials/head %>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="/js/deps.js"></script>
+        <script src="/js/md5.js"></script>
+        <link rel="stylesheet" href="/css/profile.css"/>
+        <link rel="stylesheet" href="/css/fileList.css">
+        <link rel="stylesheet" media='screen and (min-width: 320px) and (max-width: 900px)' href="/css/phone/profile.css"/>
+        <script src="/js/profile.js"></script>
+    </head>
+    <body onload="loaded()">
+        <div class="loading">
+            <div class="loading-header"></div>
+            <div class="loading-cnt">
+                    <% include ./partials/loading %>
+            </div>
+        </div>
+        <div class="header">
+                <% include ./partials/header-li %>
+
+        </div>
+        <div class="main-container">
+            <div class="left">
+                <% include ./partials/left %>
+            </div>
+            <div class="center">
+                <div class="profile">
+                    <div class="maininfo">
+                        <div class="picture" style="background-image:url('<%= picture%>');"></div>
+                        <div class="user-info">
+                            <div class="name"><%= name %></div>
+                            <div class="filecount">Total Posts : <span class="counter"><%= files %></span></div>
+                            <div class="viewcount">Total Views : <span class="counter"><%= views %></span></div>
+                        </div>
+                    </div>
+                    <div class="public-details">
+                        <div class="detail">
+                            <a href="#"><span class="edit" target="basic">Edit</span></a>
+                            <button class="cancel">Cancel</button>
+                            <button class="save">Save</button>
+                            <table>
+                                <tr>
+                                    <td class="detail-tag">Description :</td>
+                                    <td class="detail-value"><span class="detail-value-text u-desc"></span> <a href="#"></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail-tag">University :</td>
+                                    <td class="detail-value"> <span class="detail-value-text u-clg"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail-tag">Department :</td>
+                                    <td class="detail-value"> <span class="detail-value-text u-dep"></span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="profile-tabs">
+                        <% include ./web-templates/tabs %>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <% include ./partials/right %>
+            </div>
+            <% include ./partials/toast %>
+        </div>
+    </body>
+</html>
